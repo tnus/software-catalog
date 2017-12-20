@@ -1,0 +1,17 @@
+= Software Cataloque Application
+
+This application manages multiple softwares in a company. Each Software has a name and description. Contacts persons can be specified per application. A link routes the user to the application.
+
+== Installation
+
+run the provided jar file
+
+== Usage
+
+[listing]
+----
+$ cd greeter-1.0
+$ ./bin/sotftware-service run
+
+Hello, Software
+----
