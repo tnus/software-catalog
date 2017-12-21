@@ -3,6 +3,10 @@ buildscript {
     dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
 }
 
+plugins {
+  id "com.ewerk.gradle.plugins.querydsl" version "1.0.9"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -11,6 +15,23 @@ jar {
     baseName = 'nuss-software-catalog-software-service'
 }
 sourceCompatibility = 1.8
+
+eclipse {
+    classpath {
+        file.beforeMerged { cp ->
+            cp.entries.add( new org.gradle.plugins.ide.eclipse.model.SourceFolder('build/generated/querydsl', null) )
+        }
+    }
+
+//	sourceSets {
+//	    main {
+//	        java {
+//	            srcDirs += ["src/querydsl/java"]
+//	        }
+//	    }
+//	}
+}
+
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -26,4 +47,9 @@ dependencies {
     compile project(':shared')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+querydsl {
+  querydslSourcesDir = 'build/generated/querydsl'
+  jpa = true
 }
