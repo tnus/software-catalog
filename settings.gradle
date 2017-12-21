@@ -1,6 +1,6 @@
 rootProject.name = 'software-cataloque'
 
 include 'shared'
-include 'software-service'
-include 'software-vaadin'
+include 'service'
+include 'vaadin'
 include 'docs'
