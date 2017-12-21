@@ -9,7 +9,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'nuss-software-cataloque-software-service'
+    baseName = 'nuss-software-catalog-software-service'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8

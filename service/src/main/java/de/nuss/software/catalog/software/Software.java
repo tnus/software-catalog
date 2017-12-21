@@ -1,4 +1,4 @@
-package de.nuss.software.cataloque.software;
+package de.nuss.software.catalog.software;
 
 import lombok.Data;
 

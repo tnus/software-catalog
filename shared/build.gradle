@@ -10,7 +10,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 jar {
-    baseName = 'nuss-software-cataloque-shared'
+    baseName = 'nuss-software-catalog-shared'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8

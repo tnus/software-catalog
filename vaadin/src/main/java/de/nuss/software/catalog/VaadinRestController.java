@@ -1,4 +1,4 @@
-package de.nuss.software.cataloque;
+package de.nuss.software.catalog;
 
 import java.time.ZonedDateTime;
 
