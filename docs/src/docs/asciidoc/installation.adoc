@@ -1,0 +1,12 @@
+= Installation
+
+Here the neccessary steps for the installation are descriped
+
+
+[listing]
+----
+$ cd greeter-1.0
+$ ./bin/sotftware-service run
+
+Hello, Software
+----

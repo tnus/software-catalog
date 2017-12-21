@@ -1,0 +1,19 @@
+= Architecture
+
+The application consists of the following modules:
+
+* shared: Common classes
+* service: Rest Interface
+* vaadin: Web Application
+
+== Shared
+
+The shared module contains common classes for all other modules.
+
+== Service
+
+The service module contains the rest service interface. It provides method to retrieve and persist software entities.
+
+== Vaadin
+
+The vaadin module is a web application which can be used by an end user.

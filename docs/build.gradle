@@ -2,7 +2,7 @@ apply plugin : 'org.asciidoctor.convert'
 
 asciidoctor {
     sources {
-        include 'software-cataloque.adoc' 
+        include 'software-catalog.adoc' 
     }
 }
 

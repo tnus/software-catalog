@@ -5,7 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>Software Cataloque Application</title>
+<meta name="author" content="Thorsten Nuß">
+<title>Software Catalog Application</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -417,15 +418,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .show-for-print{display:inherit!important}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Software Cataloque Application</h1>
+<h1>Software Catalog Application</h1>
+<div class="details">
+<span id="author" class="author">Thorsten Nuß</span><br>
+<span id="email" class="email"><a href="mailto:info@gmail.com">info@gmail.com</a></span><br>
+<span id="revnumber">version 0.0.1-SNAPSHOT</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_installation">Installation</a></li>
+<li><a href="#_architecture">Architecture</a>
+<ul class="sectlevel2">
+<li><a href="#_shared">Shared</a></li>
+<li><a href="#_service">Service</a></li>
+<li><a href="#_vaadin">Vaadin</a></li>
+</ul>
+</li>
+<li><a href="#_q_a">Q&amp;A</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This application manages multiple softwares in a company. Each Software has a name and description. Contacts persons can be specified per application. A link routes the user to the application.</p>
+<p>This application list all software which is available in a company. Each Software has a name and description. Via a link the user can navigate directly to the application.</p>
 </div>
 </div>
 </div>
@@ -433,13 +455,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>run the provided jar file</p>
+<p>Here the neccessary steps for the installation are descriped</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_usage">Usage</h2>
-<div class="sectionbody">
 <div class="listingblock">
 <div class="content">
 <pre>$ cd greeter-1.0
@@ -450,10 +467,67 @@ Hello, Software</pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_architecture">Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application consists of the following modules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>shared: Common classes</p>
+</li>
+<li>
+<p>service: Rest Interface</p>
+</li>
+<li>
+<p>vaadin: Web Application</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_shared">Shared</h3>
+<div class="paragraph">
+<p>The shared module contains common classes for all other modules.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service">Service</h3>
+<div class="paragraph">
+<p>The service module contains the rest service interface. It provides method to retrieve and persist software entities.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vaadin">Vaadin</h3>
+<div class="paragraph">
+<p>The vaadin module is a web application which can be used by an end user.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_q_a">Q&amp;A</h2>
+<div class="sectionbody">
+<div class="qlist qanda">
+<ol>
+<li>
+<p><em>Why should i use the software?</em></p>
+<p>It can be used to get an overview of all applications.</p>
+</li>
+<li>
+<p><em>Can i list only my relevant applications?</em></p>
+<p>This feature is planned but currently not implemented.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-20 18:07:11 +01:00
+Version 0.0.1-SNAPSHOT<br>
+Last updated 2017-12-21 11:04:08 +01:00
 </div>
 </div>
 </body>

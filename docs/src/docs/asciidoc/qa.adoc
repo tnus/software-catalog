@@ -1,0 +1,7 @@
+= Q&A
+
+[qanda]
+Why should i use the software?::
+  It can be used to get an overview of all applications.
+Can i list only my relevant applications?:: 
+  This feature is planned but currently not implemented.

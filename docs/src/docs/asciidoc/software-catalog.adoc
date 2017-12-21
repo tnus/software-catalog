@@ -1,0 +1,11 @@
+= Software Catalog Application
+Thorsten Nuß <info@gmail.com>
+:revnumber: {project-version}
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../java]
+:toc: left
+
+include::overview.adoc[leveloffset=1]
+include::installation.adoc[leveloffset=1]
+include::architecture.adoc[leveloffset=1]
+include::qa.adoc[leveloffset=1]
