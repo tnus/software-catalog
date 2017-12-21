@@ -11,4 +11,11 @@ allprojects {
 subprojects {
     version = '0.0.1-SNAPSHOT'
     group = 'de.nuss.software.cataloque'
+    
+    ext { 
+    	springBootVersion = '1.5.9.RELEASE'
+    	querydslVersion = '4.1.4'
+    }
+    
+    repositories { mavenCentral() }
 }

@@ -8,6 +8,7 @@ ext { springBootVersion = '1.5.9.RELEASE' }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'project-report'
 
 jar {
     baseName = 'nuss-software-catalog-shared'
@@ -19,6 +20,8 @@ repositories { mavenCentral() }
 dependencies {
     compile('org.springframework.boot:spring-boot-starter')
     compile('org.projectlombok:lombok')
+//    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+//    compile('com.fasterxml.jackson.core:jackson-annotations:2.8.0')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
