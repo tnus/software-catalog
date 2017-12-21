@@ -1,9 +1,36 @@
-apply plugin : 'org.asciidoctor.convert' 
+buildscript {
+	repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15'
+    }
+}
+
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.3'
+}
+
+apply plugin: 'org.asciidoctor.convert'
+
+version = '1.0.0-SNAPSHOT'
+
+asciidoctorj {
+    version = '1.5.5'
+}
 
 asciidoctor {
+    backends 'html', 'pdf'
     sources {
         include 'software-catalog.adoc' 
     }
+    attributes \
+        'build-gradle': file('build.gradle'),
+        'toc': 'left',
+        'header_footer': true,
+        'setanchors': '',
+        'idprefix': '',
+        'idseparator': '-'
 }
 
 build.dependsOn 'asciidoctor'
