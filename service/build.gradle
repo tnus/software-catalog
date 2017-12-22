@@ -18,9 +18,9 @@ plugins {
 }
 
 apply plugin: 'org.asciidoctor.convert'
-apply plugin: 'java'
+//apply plugin: 'java'
 apply plugin: 'jacoco'
-apply plugin: 'eclipse'
+//apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'maven'
 
@@ -28,15 +28,6 @@ jar {
     baseName = 'nuss-software-catalog-software-service'
 }
 sourceCompatibility = 1.8
-
-eclipse {
-    classpath {
-        file.beforeMerged { cp ->
-            cp.entries.add( new org.gradle.plugins.ide.eclipse.model.SourceFolder('build/generated/querydsl', null) )
-        }
-    }
-}
-
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -62,6 +53,14 @@ querydsl {
   jpa = true
 }
 
+eclipse {
+    classpath {
+        file.beforeMerged { cp ->
+            cp.entries.add( new org.gradle.plugins.ide.eclipse.model.SourceFolder('build/generated/querydsl', null) )
+        }
+    }
+}
+
 jacoco {
     toolVersion = "0.7.9"
 }
@@ -75,26 +74,26 @@ jacocoTestReport {
     }
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
+//task sourcesJar(type: Jar, dependsOn: classes) {
+//    classifier = 'sources'
+//    from sourceSets.main.allSource
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives sourcesJar
+//    archives javadocJar
+//}
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-test {
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
-}
+//test {
+//    testLogging {
+//        events "passed", "skipped", "failed"
+//    }
+//}
 
 springBoot {
     backupSource = false
@@ -104,9 +103,9 @@ bootRepackage {
     classifier = 'exec'
 }
 
-asciidoctorj {
-    version = '1.5.5'
-}
+//asciidoctorj {
+//    version = '1.5.5'
+//}
 
 asciidoctor {
     backends 'html', 'pdf'
