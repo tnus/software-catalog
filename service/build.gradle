@@ -6,13 +6,18 @@ buildscript {
 	    }     	
     	mavenCentral() 
     }
-    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
+    dependencies { 
+    	classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    	classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15' 
+    }
 }
 
 plugins {
   id "com.ewerk.gradle.plugins.querydsl" version "1.0.9"
+  id 'org.asciidoctor.convert' version '1.5.3'
 }
 
+apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'eclipse'
@@ -30,14 +35,6 @@ eclipse {
             cp.entries.add( new org.gradle.plugins.ide.eclipse.model.SourceFolder('build/generated/querydsl', null) )
         }
     }
-
-//	sourceSets {
-//	    main {
-//	        java {
-//	            srcDirs += ["src/querydsl/java"]
-//	        }
-//	    }
-//	}
 }
 
 
@@ -106,3 +103,18 @@ springBoot {
 bootRepackage {
     classifier = 'exec'
 }
+
+asciidoctorj {
+    version = '1.5.5'
+}
+
+asciidoctor {
+    backends 'html', 'pdf'
+    sources {
+        include 'service-complete.adoc' 
+    }
+    attributes \
+        'toc': 'left'
+}
+
+build.dependsOn 'asciidoctor'
