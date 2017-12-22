@@ -1,10 +1,18 @@
 //plugins {
-//  id 'org.asciidoctor.convert' version '1.5.3' apply false 
+//  id 'org.asciidoctor.convert' version '1.5.7' apply false 
+//}
+
+//plugins { 
+//	id "io.spring.dependency-management" version "1.0.4.RELEASE" 
 //}
 
 allprojects {
     repositories {
-        mavenCentral()
+        mavenLocal()
+	    maven {	    
+	        url "http://149.249.4.101/artifactory/repo"
+	    }     	
+    	mavenCentral() 
     }
 }
 
@@ -17,13 +25,38 @@ subprojects {
     	querydslVersion = '4.1.4'
     }
     
-    repositories { mavenCentral() }
+	buildscript {
+	    repositories { 
+	        mavenLocal()
+		    maven {	    
+		        url "http://149.249.4.101/artifactory/repo"
+		    }     	
+	    	mavenCentral()  
+	    }
+		dependencies {
+		        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15'
+	    }	    
+	}    
+    
+    repositories { 
+        mavenLocal()
+	    maven {	    
+	        url "http://149.249.4.101/artifactory/repo"
+	    }     	
+    	mavenCentral()  
+    }
     
 	apply plugin: 'java'
-
+	apply plugin: 'eclipse'
+	apply plugin: 'project-report'
+//	apply plugin: 'org.asciidoctor.convert'
+	
     // Disable the test report for the individual test task
     test {
         reports.html.enabled = false
+        testLogging {
+        	events "passed", "skipped", "failed"
+    	}
     }    
 }
 
