@@ -8,6 +8,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 import de.nuss.software.catalog.about.AboutView;
+import de.nuss.vaadin.addon.components.counter.Counter;
 
 @SpringView(name = SoftwareView.ID)
 public class SoftwareView extends VerticalLayout implements View {
@@ -20,5 +21,8 @@ public class SoftwareView extends VerticalLayout implements View {
 			UI.getCurrent().getNavigator().navigateTo(AboutView.ID);
 		});
 		addComponent(btnNav);
+
+		Counter counterTotal = new Counter(23212);
+		addComponent(counterTotal);
 	}
 }

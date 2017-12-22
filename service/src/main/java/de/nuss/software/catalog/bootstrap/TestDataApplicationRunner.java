@@ -22,7 +22,7 @@ public class TestDataApplicationRunner implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		log.info("create test data");
 
-		IntStream.range(1, 10).parallel().forEach(i -> {
+		IntStream.range(0, 10).parallel().forEach(i -> {
 			log.info("create software {}", i);
 			Software software = new Software("TEST_DATA_SOFTWARE_" + i, "Test Data Software " + i);
 			softwareRepository.save(software);

@@ -12,10 +12,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile('com.vaadin:vaadin-spring-boot-starter')
-//    compile('de.nuss.spring.boot:nuss-spring-boot-vaadin:1.1.0-SNAPSHOT')
-    
-    
+//    compile('com.vaadin:vaadin-spring-boot-starter')
+    compile('de.nuss.spring.boot:nuss-spring-boot-vaadin:1.1.0-SNAPSHOT')
     compile project(':shared')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
