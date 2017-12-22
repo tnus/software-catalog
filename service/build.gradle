@@ -1,5 +1,11 @@
 buildscript {
-    repositories { mavenCentral() }
+    repositories { 
+     	mavenLocal()
+	    maven {	    
+	        url "http://149.249.4.101/artifactory/repo"
+	    }     	
+    	mavenCentral() 
+    }
     dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
 }
 
@@ -8,8 +14,10 @@ plugins {
 }
 
 apply plugin: 'java'
+apply plugin: 'jacoco'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'maven'
 
 jar {
     baseName = 'nuss-software-catalog-software-service'
@@ -40,16 +48,61 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-data-rest')
     
+    compile('com.h2database:h2')
+    
     compile "com.querydsl:querydsl-core:$querydslVersion"
     compile "com.querydsl:querydsl-apt:$querydslVersion"
     compile "com.querydsl:querydsl-jpa:$querydslVersion"
     
     compile project(':shared')
-    compileOnly('org.projectlombok:lombok')
+    compile('org.projectlombok:lombok')
+    
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 querydsl {
   querydslSourcesDir = 'build/generated/querydsl'
   jpa = true
+}
+
+jacoco {
+    toolVersion = "0.7.9"
+}
+
+jacocoTestReport {
+    reports {
+    	html.enabled true
+        xml.enabled true
+        csv.enabled true
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+springBoot {
+    backupSource = false
+}
+
+bootRepackage {
+    classifier = 'exec'
 }

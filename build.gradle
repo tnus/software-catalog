@@ -10,7 +10,7 @@ allprojects {
 
 subprojects {
     version = '0.0.1-SNAPSHOT'
-    group = 'de.nuss.software.cataloque'
+    group = 'de.nuss.software.catalog'
     
     ext { 
     	springBootVersion = '1.5.9.RELEASE'
