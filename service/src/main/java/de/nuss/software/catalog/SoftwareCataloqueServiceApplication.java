@@ -8,6 +8,5 @@ public class SoftwareCataloqueServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SoftwareCataloqueServiceApplication.class, args);
-
 	}
 }

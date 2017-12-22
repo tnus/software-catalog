@@ -9,11 +9,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "SG_T_SOFTWARE")
 @JsonInclude(Include.NON_EMPTY)
 @Data
+@NoArgsConstructor
 public class Software {
 
 	/** The id. */
@@ -44,4 +46,12 @@ public class Software {
 	 */
 	@Column(name = "C_URL")
 	private String url;
+
+	public Software(String key, String name) {
+		super();
+		this.id = key;
+		this.key = key;
+		this.name = name;
+	}
+
 }
