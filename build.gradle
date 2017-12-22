@@ -23,6 +23,7 @@ subprojects {
     ext { 
     	springBootVersion = '1.5.9.RELEASE'
     	querydslVersion = '4.1.4'
+    	vaadinVersion = '8.2.0'
     }
     
 	buildscript {
