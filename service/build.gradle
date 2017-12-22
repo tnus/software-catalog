@@ -117,4 +117,4 @@ asciidoctor {
         'toc': 'left'
 }
 
-build.dependsOn 'asciidoctor'
+//build.dependsOn 'asciidoctor'

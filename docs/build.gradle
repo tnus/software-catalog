@@ -33,4 +33,4 @@ asciidoctor {
         'idseparator': '-'
 }
 
-build.dependsOn 'asciidoctor'
+build.finalizedBy(asciidoctor)
