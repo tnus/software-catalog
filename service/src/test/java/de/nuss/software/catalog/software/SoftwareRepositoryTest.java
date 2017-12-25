@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import de.nuss.software.catalog.AbstractIntegrationTest;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+// @DataJpaTest
 @Transactional(propagation = Propagation.NOT_SUPPORTED)
 public class SoftwareRepositoryTest extends AbstractIntegrationTest {
 
@@ -52,7 +54,7 @@ public class SoftwareRepositoryTest extends AbstractIntegrationTest {
 	/**
 	 * Test if a software with duplicate key can be saved
 	 */
-	@Test
+	@Test(expected = DataIntegrityViolationException.class)
 	public void saveDuplicateKey() {
 		repository.save(new Software("duplicateKey", "Duplicate Key 1"));
 		repository.save(new Software("duplicateKey", "Duplicate Key 2"));
