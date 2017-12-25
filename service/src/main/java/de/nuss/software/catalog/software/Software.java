@@ -26,7 +26,7 @@ public class Software {
 	/**
 	 * Unique Software Key
 	 */
-	@Column(name = "C_KEY")
+	@Column(name = "C_KEY", unique = true)
 	private String key;
 
 	/**

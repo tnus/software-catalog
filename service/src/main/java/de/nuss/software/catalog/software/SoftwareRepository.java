@@ -10,7 +10,16 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author Thorsten Nuss
  *
  */
+// @Transactional
 public interface SoftwareRepository extends PagingAndSortingRepository<Software, String>, JpaSpecificationExecutor,
 		QueryDslPredicateExecutor<Software> {
+
+	/**
+	 * Returns the software with the given key.
+	 * 
+	 * @param key
+	 * @return
+	 */
+	Software findByKey(String key);
 
 }

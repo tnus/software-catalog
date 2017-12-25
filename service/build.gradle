@@ -25,7 +25,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'maven'
 
 jar {
-    baseName = 'nuss-software-catalog-software-service'
+    baseName = 'nuss-software-catalog-service'
 }
 sourceCompatibility = 1.8
 

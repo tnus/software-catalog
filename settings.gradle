@@ -1,5 +1,9 @@
 rootProject.name = 'software-cataloque'
 
+include 'client-api'
+include 'client-feign'
+include 'client-bowman'
+include 'client-resttemplate'
 include 'shared'
 include 'service'
 include 'vaadin'
