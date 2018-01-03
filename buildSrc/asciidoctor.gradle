@@ -3,8 +3,12 @@ apply plugin: 'org.asciidoctor.convert'
 asciidoctor {
     backends 'html', 'pdf'
     sources {
-        include 'complete.adoc' 
+        include 'manual.adoc' 
     }
     attributes \
-        'toc': 'left'
+        'toc': 'left',
+        'header_footer': true,
+        'setanchors': '',
+        'idprefix': '',
+        'idseparator': '-'
 }

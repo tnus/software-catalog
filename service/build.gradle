@@ -1,21 +1,7 @@
-//buildscript {
-////    repositories { 
-////     	mavenLocal()
-////	    maven {	    
-////	        url "http://149.249.4.101/artifactory/repo"
-////	    }     	
-////    	mavenCentral() 
-////    }
-//    dependencies { 
-//    	classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-////    	classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15' 
-//    }
-//}
+jar {
+    baseName = 'nuss-software-catalog-service'
+}
 
-//plugins {
-////  id "com.ewerk.gradle.plugins.querydsl" version "1.0.9"
-//  id 'org.asciidoctor.convert' version '1.5.7'
-//}
 
 apply from: '../buildSrc/querydsl.gradle'
 apply from: '../buildSrc/spring-boot.gradle'
@@ -23,21 +9,7 @@ apply from: '../buildSrc/greeting.gradle'
 apply from: '../buildSrc/jacoco.gradle'
 apply from: '../buildSrc/asciidoctor.gradle'
 
-
-//apply plugin: 'org.asciidoctor.convert'
-//apply plugin: 'java'
-//apply plugin: 'jacoco'
-//apply plugin: 'eclipse'
-//apply plugin: 'org.springframework.boot'
-//apply plugin: 'maven'
-
-jar {
-    baseName = 'nuss-software-catalog-service'
-}
-//sourceCompatibility = 1.8
-
 dependencies {
-//    compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -46,83 +18,6 @@ dependencies {
     
     compile('com.h2database:h2')
     
-//    compile "com.querydsl:querydsl-core:$querydslVersion"
-//    compile "com.querydsl:querydsl-apt:$querydslVersion"
-//    compile "com.querydsl:querydsl-jpa:$querydslVersion"
-    
     compile project(':shared')
     compile('org.projectlombok:lombok')
-    
-//    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-
-//springBoot {
-//    buildInfo {
-//        // Generate extra build info.
-//        additionalProperties = [
-//                by: System.properties['user.name'],
-//                operatingSystem: "${System.properties['os.name']} (${System.properties['os.version']})",
-//                continuousIntegration: System.getenv('CI') ? true: false,
-//                machine: InetAddress.localHost.hostName,
-//                // Override buildInfo property time
-//                time: buildTime(),
-//                // Override name property
-//                name: 'software-catalog-service'
-//        ]
-//    }
-//}
- 
-//def buildTime() {
-//    final dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ")
-//    dateFormat.timeZone = java.util.TimeZone.getTimeZone('GMT')
-//    dateFormat.format(new Date())
-//}
-
-//querydsl {
-//  querydslSourcesDir = 'build/generated/querydsl'
-//  jpa = true
-//}
-
-//eclipse {
-//    classpath {
-//        file.beforeMerged { cp ->
-//            cp.entries.add( new org.gradle.plugins.ide.eclipse.model.SourceFolder('build/generated/querydsl', null) )
-//        }
-//    }
-//}
-
-//jacoco {
-//    toolVersion = "0.7.9"
-//}
-//
-//jacocoTestReport {
-//    reports {
-//    	html.enabled true
-//        xml.enabled true
-//        csv.enabled true
-//        html.destination file("${buildDir}/jacocoHtml")
-//    }
-//}
-
-//springBoot {
-//    backupSource = false
-//}
-//
-//bootRepackage {
-//    classifier = 'exec'
-//}
-
-//asciidoctorj {
-//    version = '1.5.5'
-//}
-
-//asciidoctor {
-//    backends 'html', 'pdf'
-//    sources {
-//        include 'service-complete.adoc' 
-//    }
-//    attributes \
-//        'toc': 'left'
-//}
-
-//build.dependsOn 'asciidoctor'
