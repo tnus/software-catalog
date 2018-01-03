@@ -19,7 +19,8 @@ public interface SoftwareRepository extends PagingAndSortingRepository<Software,
 	 * Returns the software with the given key.
 	 * 
 	 * @param key
-	 * @return
+	 *            key of the software to retrieve
+	 * @return Software
 	 */
 	Software findByKey(String key);
 
