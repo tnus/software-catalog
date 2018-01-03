@@ -1,0 +1,10 @@
+apply plugin: 'org.asciidoctor.convert'
+
+asciidoctor {
+    backends 'html', 'pdf'
+    sources {
+        include 'complete.adoc' 
+    }
+    attributes \
+        'toc': 'left'
+}
