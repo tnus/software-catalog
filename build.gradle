@@ -15,24 +15,24 @@ plugins {
   id "com.ewerk.gradle.plugins.querydsl" version "1.0.9" apply false
 }
 
-configurations {
-    gradleBuildSrc
-}
-dependencies {
-    gradleBuildSrc 'de.nuss.gradle:gradle-build-plugin:1.0.0-SNAPSHOT'
-}
-
-task extractBuildSrc(type: Sync) {
-    dependsOn configurations.gradleBuildSrc
-
-	println 'extract build src'    
-
-    from { // use of closure defers evaluation until execution time
-        configurations.gradleBuildSrc.collect { zipTree(it) }
-    }
-    into "buildSrc"
-//    into "$buildDir/api/"
-}  
+//configurations {
+//    gradleBuildSrc
+//}
+//dependencies {
+//    gradleBuildSrc 'de.nuss.gradle:gradle-build-plugin:1.0.0-SNAPSHOT'
+//}
+//
+//task extractBuildSrc(type: Sync) {
+//    dependsOn configurations.gradleBuildSrc
+//
+//	println 'extract build src'    
+//
+//    from { // use of closure defers evaluation until execution time
+//        configurations.gradleBuildSrc.collect { zipTree(it) }
+//    }
+//    into "buildSrc"
+////    into "$buildDir/api/"
+//}  
 
 allprojects {
     repositories {
