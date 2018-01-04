@@ -13,6 +13,25 @@
 plugins {
 //  id 'org.asciidoctor.convert' version '1.5.7' apply false
   id "com.ewerk.gradle.plugins.querydsl" version "1.0.9" apply false
+}
+
+configurations {
+    gradleBuildSrc
+}
+dependencies {
+    gradleBuildSrc 'de.nuss.gradle:gradle-build-plugin:1.0.0-SNAPSHOT'
+}
+
+task extractBuildSrc(type: Sync) {
+    dependsOn configurations.gradleBuildSrc
+
+	println 'extract build src'    
+
+    from { // use of closure defers evaluation until execution time
+        configurations.gradleBuildSrc.collect { zipTree(it) }
+    }
+    into "buildSrc"
+//    into "$buildDir/api/"
 }  
 
 allprojects {
@@ -51,7 +70,10 @@ subprojects {
 		 		classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.7"
 		        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15'
 		        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	    }	    
+//		        classpath 'de.nuss.gradle:gradle-build-plugin:1.0.0-SNAPSHOT'
+		        
+		        classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+	    }	 
 	}    
 	
     repositories { 
@@ -94,7 +116,20 @@ subprojects {
 //        testLogging {
 //        	events "passed", "skipped", "failed"
 //    	}
-    }    
+    }
+    
+//    task unpackGradleBuildSrc() {
+//    	doFirst {
+//    		println 'extract build src'    
+//    		configurations.classpath.each { println it }
+//    	}
+//    
+//	//  configurations.classpath.each { println it }
+//	    
+//	//        ant.unjar src: configurations.classpath.singleFile, dest: 'build/gradle'         
+//	}              
+	
+//	preBuild.dependsOn unpackGradleBuildsSrc    
 }
 
 task testReport(type: TestReport) {
