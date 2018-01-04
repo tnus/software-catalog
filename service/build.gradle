@@ -5,7 +5,7 @@ jar {
 
 apply from: '../buildSrc/querydsl.gradle'
 apply from: '../buildSrc/spring-boot.gradle'
-apply from: '../buildSrc/greeting.gradle'
+//apply from: '../buildSrc/greeting.gradle'
 apply from: '../buildSrc/jacoco.gradle'
 apply from: '../buildSrc/asciidoctor.gradle'
 

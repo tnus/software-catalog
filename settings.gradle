@@ -1,3 +1,5 @@
+println 'This is executed during the initialization phase.'
+
 rootProject.name = 'software-cataloque'
 
 include 'client-api'

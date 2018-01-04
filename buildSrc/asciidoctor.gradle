@@ -1,0 +1,14 @@
+apply plugin: 'org.asciidoctor.convert'
+
+asciidoctor {
+    backends 'html', 'pdf'
+    sources {
+        include 'manual.adoc' 
+    }
+    attributes \
+        'toc': 'left',
+        'header_footer': true,
+        'setanchors': '',
+        'idprefix': '',
+        'idseparator': '-'
+}

@@ -1,0 +1,39 @@
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    
+    testCompile('org.springframework.boot:spring-boot-starter-test')    
+}
+
+springBoot {
+    backupSource = false
+}
+
+bootRepackage {
+    classifier = 'exec'
+}
+
+springBoot {
+    buildInfo {
+        // Generate extra build info.
+        additionalProperties = [
+                by: System.properties['user.name'],
+                operatingSystem: "${System.properties['os.name']} (${System.properties['os.version']})",
+                continuousIntegration: System.getenv('CI') ? true: false,
+                machine: InetAddress.localHost.hostName,
+                // Override buildInfo property time
+                time: buildTime(),
+                // Override name property
+			//                name: 'software-catalog-service'
+        ]
+    }
+}
+
+def buildTime() {
+    final dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ")
+    dateFormat.timeZone = java.util.TimeZone.getTimeZone('GMT')
+    dateFormat.format(new Date())
+}
